@@ -1,0 +1,33 @@
+<?php
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\CourseController;
+// use App\Http\Controllers\Api\DesignationController;
+/*
+|--------------------------------------------------------------------------
+| API Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register API routes for your application. These
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "api" middleware group. Make something great!
+|
+*/
+
+Route::controller(AuthController::class)->group(function(){
+    Route::post('register','_register');
+    Route::post('login','_login');
+});
+
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    return $request->user();
+});
+Route::controller(DesignationController::class)->group(function(){
+    Route::get('course','index');
+    Route::get('course/{course}','show');
+    Route::put('course/{course}','update');
+    Route::delete('course/{course}','destroy');
+    Route::post('course/create','store');
+});
