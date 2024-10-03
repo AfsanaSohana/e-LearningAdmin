@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Course;
 use App\Http\Controllers\Api\BaseController;
 
-class DoctorController extends BaseController
+class CourseController extends BaseController
 {
     public function index(){
         $data=Course::get();
@@ -18,7 +18,7 @@ class DoctorController extends BaseController
         return $this->sendResponse($data,"Course created successfully");
     }
     public function show(Course $course){
-        return $this->sendResponse($course,"Course created successfully");
+        return $this->sendResponse($course,"Course data");
     }
 
     public function update(Request $request,$id){

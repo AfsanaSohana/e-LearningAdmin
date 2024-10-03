@@ -24,10 +24,11 @@ Route::controller(AuthController::class)->group(function(){
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::controller(DesignationController::class)->group(function(){
+
+Route::controller(CourseController::class)->group(function(){
     Route::get('course','index');
     Route::get('course/{course}','show');
-    Route::put('course/{course}','update');
+    Route::post('course/edit/{course}','update');
     Route::delete('course/{course}','destroy');
     Route::post('course/create','store');
 });
