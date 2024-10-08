@@ -14,10 +14,7 @@ return new class extends Migration
         Schema::create('course', function (Blueprint $table) {
             $table->id();
             $table->string('course_name');
-            $table->bigInteger('batch_id')->nullable();
-            $table->bigInteger('course_category')->nullable();
-            $table->string('duration')->nullable();
-            $table->decimal('fees', 6, 2)->nullable();
+            $table->bigInteger('details')->nullable();
             $table->timestamps();
         });
     }
