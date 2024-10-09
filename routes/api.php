@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\CourseController;
+use App\Http\Controllers\Api\ClassesController;
 // use App\Http\Controllers\Api\DesignationController;
 /*
 |--------------------------------------------------------------------------
@@ -31,4 +32,11 @@ Route::controller(CourseController::class)->group(function(){
     Route::post('course/edit/{course}','update');
     Route::delete('course/{course}','destroy');
     Route::post('course/create','store');
+});
+Route::controller(CourseController::class)->group(function(){
+    Route::get('classes','index');
+    Route::get('classes/{classes}','show');
+    Route::post('classes/edit/{classes}','update');
+    Route::delete('classes/{classes}','destroy');
+    Route::post('classes/create','store');
 });
