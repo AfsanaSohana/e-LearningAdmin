@@ -25,7 +25,6 @@ Route::controller(AuthController::class)->group(function(){
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-
 Route::controller(CourseController::class)->group(function(){
     Route::get('course','index');
     Route::get('course/{course}','show');
@@ -33,7 +32,7 @@ Route::controller(CourseController::class)->group(function(){
     Route::delete('course/{course}','destroy');
     Route::post('course/create','store');
 });
-Route::controller(CourseController::class)->group(function(){
+Route::controller(ClassesController::class)->group(function(){
     Route::get('classes','index');
     Route::get('classes/{classes}','show');
     Route::post('classes/edit/{classes}','update');
