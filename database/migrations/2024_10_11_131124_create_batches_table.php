@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('batches', function (Blueprint $table) {
             $table->id();
+            $table->string('batch_name');
+            $table->string('batch_type');
+            $table->varchar('duration');
+            $table->int('instructor_id');
+            $table->int('course_id');
             $table->timestamps();
         });
     }

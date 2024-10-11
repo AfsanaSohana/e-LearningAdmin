@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\CourseController;
 use App\Http\Controllers\Api\ClassesController;
+use App\Http\Controllers\Api\BatchController;
+use App\Http\Controllers\Api\ExamController;
 // use App\Http\Controllers\Api\DesignationController;
 /*
 |--------------------------------------------------------------------------
@@ -38,4 +40,18 @@ Route::controller(ClassesController::class)->group(function(){
     Route::post('classes/edit/{classes}','update');
     Route::delete('classes/{classes}','destroy');
     Route::post('classes/create','store');
+});
+Route::controller(BatchController::class)->group(function(){
+    Route::get('batch','index');
+    Route::get('batch/{batch}','show');
+    Route::post('batch/edit/{batch}','update');
+    Route::delete('batch/{batch}','destroy');
+    Route::post('batch/create','store');
+});
+Route::controller(ExamController::class)->group(function(){
+    Route::get('exam','index');
+    Route::get('exam/{exam}','show');
+    Route::post('exam/edit/{exam}','update');
+    Route::delete('exam/{exam}','destroy');
+    Route::post('exam/create','store');
 });

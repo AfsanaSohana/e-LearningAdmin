@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Batch extends Model
 {
     use HasFactory;
-    protected $fillable=['']
+    protected $fillable=['batch_name', 'batch_type','duration','instructor_id','course_id'];
 }

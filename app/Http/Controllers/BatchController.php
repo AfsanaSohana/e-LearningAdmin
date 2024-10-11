@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
-use App\Models\batches;
+use App\Models\Batch;
 use Illuminate\Http\Request;
-
-class BatchesController extends BaseController
+use App\Http\Controllers\Api\BaseController;
+class BatchController extends BaseController
 {
     public function index(){
         $data=Batch::get();
@@ -32,3 +32,4 @@ class BatchesController extends BaseController
         return $this->sendResponse($batch,"Batch deleted successfully");
     }
 }
+
