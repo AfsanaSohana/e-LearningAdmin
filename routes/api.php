@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\CourseController;
 use App\Http\Controllers\Api\ClassesController;
 use App\Http\Controllers\Api\BatchController;
 use App\Http\Controllers\Api\ExamController;
+use App\Http\Controllers\Api\InstructorController;
 // use App\Http\Controllers\Api\DesignationController;
 /*
 |--------------------------------------------------------------------------
@@ -54,4 +55,18 @@ Route::controller(ExamController::class)->group(function(){
     Route::post('exam/edit/{exam}','update');
     Route::delete('exam/{exam}','destroy');
     Route::post('exam/create','store');
+});
+Route::controller(InstructorController::class)->group(function(){
+    Route::get('instructor','index');
+    Route::get('instructor/{instructor}','show');
+    Route::post('instructor/edit/{instructor}','update');
+    Route::delete('instructor/{instructor}','destroy');
+    Route::post('instructor/create','store');
+});
+Route::controller(StudentController::class)->group(function(){
+    Route::get('student','index');
+    Route::get('student/{instructor}','show');
+    Route::post('student/edit/{student}','update');
+    Route::delete('student/{student}','destroy');
+    Route::post('student/create','store');
 });
