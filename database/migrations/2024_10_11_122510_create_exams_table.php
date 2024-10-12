@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('exams', function (Blueprint $table) {
             $table->id();
             $table->string('exam_name');
-            $table->datetime('exam_date');
-            $table->datetime('start_time');
-            $table->datetime('end_time');
+            $table->time('duration');
+            $table->date('start_time');
+            $table->date('end_time');
             $table->string('subject_id');
-            $table->string('batch_id');
+            $table->biginteger('batch_id');
             $table->timestamps();
         });
     }

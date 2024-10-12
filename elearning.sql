@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 09, 2024 at 09:51 AM
+-- Generation Time: Oct 12, 2024 at 03:51 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -24,14 +24,40 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `batches`
+--
+
+CREATE TABLE `batches` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `classes`
 --
 
 CREATE TABLE `classes` (
   `id` bigint(20) UNSIGNED NOT NULL,
+  `class_name` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `classes`
+--
+
+INSERT INTO `classes` (`id`, `class_name`, `created_at`, `updated_at`) VALUES
+(1, 'one', '2024-10-11 07:01:46', '2024-10-11 07:01:46'),
+(2, '', '2024-10-11 10:41:40', '2024-10-11 10:41:40'),
+(3, 'one', '2024-10-11 10:52:32', '2024-10-11 10:52:32'),
+(4, 'one', '2024-10-11 11:11:23', '2024-10-11 11:11:23'),
+(5, 'one', '2024-10-11 11:11:47', '2024-10-11 11:11:47'),
+(6, 'one', '2024-10-11 11:18:35', '2024-10-11 11:18:35'),
+(7, 'three', '2024-10-11 11:19:14', '2024-10-11 11:19:14');
 
 -- --------------------------------------------------------
 
@@ -52,8 +78,23 @@ CREATE TABLE `courses` (
 --
 
 INSERT INTO `courses` (`id`, `course_name`, `details`, `created_at`, `updated_at`) VALUES
-(1, 'language', 'spoken english', '2024-10-09 00:56:55', '2024-10-09 00:56:55'),
-(2, 'language', 'ILTES', '2024-10-09 00:57:48', '2024-10-09 00:57:48');
+(1, 'Regular course', 'HSC 25', '2024-10-11 07:01:10', '2024-10-11 07:01:10'),
+(2, 'It course', 'data science', '2024-10-11 07:01:35', '2024-10-11 07:01:35'),
+(3, 'It course', 'data science', '2024-10-11 10:04:08', '2024-10-11 10:04:08'),
+(4, 'It course1', 'data science', '2024-10-11 10:04:09', '2024-10-11 10:04:09'),
+(5, 'It course', 'data science', '2024-10-11 10:40:14', '2024-10-11 10:40:14');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `exams`
+--
+
+CREATE TABLE `exams` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -88,12 +129,14 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(6, '2014_10_12_000000_create_users_table', 1),
-(7, '2014_10_12_100000_create_password_reset_tokens_table', 1),
-(8, '2019_08_19_000000_create_failed_jobs_table', 1),
-(9, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(10, '2024_10_02_075031_create_courses_table', 1),
-(11, '2024_10_09_071632_create_classes_table', 2);
+(1, '2014_10_12_000000_create_users_table', 1),
+(2, '2014_10_12_100000_create_password_reset_tokens_table', 1),
+(3, '2019_08_19_000000_create_failed_jobs_table', 1),
+(4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
+(5, '2024_10_02_075031_create_courses_table', 1),
+(6, '2024_10_09_071632_create_classes_table', 1),
+(7, '2024_10_11_122510_create_exams_table', 1),
+(8, '2024_10_11_131124_create_batches_table', 2);
 
 -- --------------------------------------------------------
 
@@ -148,6 +191,12 @@ CREATE TABLE `users` (
 --
 
 --
+-- Indexes for table `batches`
+--
+ALTER TABLE `batches`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `classes`
 --
 ALTER TABLE `classes`
@@ -157,6 +206,12 @@ ALTER TABLE `classes`
 -- Indexes for table `courses`
 --
 ALTER TABLE `courses`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `exams`
+--
+ALTER TABLE `exams`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -198,16 +253,28 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `batches`
+--
+ALTER TABLE `batches`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `classes`
 --
 ALTER TABLE `classes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `courses`
 --
 ALTER TABLE `courses`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `exams`
+--
+ALTER TABLE `exams`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -219,7 +286,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`

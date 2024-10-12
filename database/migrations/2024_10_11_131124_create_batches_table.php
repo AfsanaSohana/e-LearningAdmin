@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('batch_name');
             $table->string('batch_type');
-            $table->varchar('duration');
-            $table->int('instructor_id');
-            $table->int('course_id');
+            $table->string('duration');
+            $table->integer('instructor_id');
+            $table->integer('course_id');
             $table->timestamps();
         });
     }
