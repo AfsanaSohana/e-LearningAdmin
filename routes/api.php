@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\ClassesController;
 use App\Http\Controllers\Api\BatchController;
 use App\Http\Controllers\Api\ExamController;
 use App\Http\Controllers\Api\InstructorController;
+use App\Http\Controllers\Api\StudentController;
 // use App\Http\Controllers\Api\DesignationController;
 /*
 |--------------------------------------------------------------------------
