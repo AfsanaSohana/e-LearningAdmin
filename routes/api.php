@@ -9,7 +9,8 @@ use App\Http\Controllers\Api\BatchController;
 use App\Http\Controllers\Api\ExamController;
 use App\Http\Controllers\Api\InstructorController;
 use App\Http\Controllers\Api\StudentController;
-// use App\Http\Controllers\Api\DesignationController;
+use App\Http\Controllers\Api\RoutineController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -71,3 +72,10 @@ Route::controller(StudentController::class)->group(function(){
     Route::delete('student/{student}','destroy');
     Route::post('student/create','store');
 });
+// Route::controller(RoutineController::class)->group(function(){
+//     Route::get('routine','index');
+//     Route::get('routine/{routine}','show');
+//     Route::post('routine/edit/{routine}','update');
+//     Route::delete('routine/{routine}','destroy');
+//     Route::post('routine/create','store');
+// });
