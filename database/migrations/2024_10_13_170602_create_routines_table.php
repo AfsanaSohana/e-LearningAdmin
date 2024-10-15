@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('routines', function (Blueprint $table) {
             $table->id();
+            $table->string('batch_id');
+            $table->string('day_name');
+            $table->date('date');
+            $table->time('start_time');
+            $table->time('end_time');
+            $table->string('note');
             $table->timestamps();
         });
     }
