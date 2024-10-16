@@ -11,7 +11,7 @@ class ExamController extends  BaseController
 
 {
     public function index(){
-        $data=Exam::with('Subject','batch')->get();
+        $data=Exam::with('subject','batch')->get();
         return $this->sendResponse($data,"Exam data");
     }
 
