@@ -8,7 +8,7 @@ use App\Http\Controllers\Api\BaseController;
 class BatchController extends BaseController
 {
     public function index(){
-        $data=Batch::get();
+        $data=Batch::with('instructor','course')->get();
         return $this->sendResponse($data,"Batch data");
     }
 

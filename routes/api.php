@@ -10,6 +10,7 @@ use App\Http\Controllers\Api\ExamController;
 use App\Http\Controllers\Api\InstructorController;
 use App\Http\Controllers\Api\StudentController;
 use App\Http\Controllers\Api\RoutineController;
+use App\Http\Controllers\Api\SubjectController;
 // use App\Http\Controllers\Api\DesignationController;
 /*
 |--------------------------------------------------------------------------
@@ -78,4 +79,11 @@ Route::controller(RoutineController::class)->group(function(){
     Route::post('routine/edit/{routine}','update');
     Route::delete('routine/{routine}','destroy');
     Route::post('routine/create','store');
+});
+Route::controller(SubjectController::class)->group(function(){
+    Route::get('subject','index');
+    Route::get('subject/{subject}','show');
+    Route::post('subject/edit/{subject}','update');
+    Route::delete('subject/{subject}','destroy');
+    Route::post('subject/create','store');
 });

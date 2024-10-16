@@ -11,14 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('exams', function (Blueprint $table) {
+        Schema::create('syllabi', function (Blueprint $table) {
             $table->id();
-            $table->string('exam_name');
-            $table->time('duration');
-            $table->date('start_time');
-            $table->date('end_time');
-            $table->string('subject_id');
-            $table->biginteger('batch_id');
             $table->timestamps();
         });
     }
@@ -28,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('exams');
+        Schema::dropIfExists('syllabi');
     }
 };

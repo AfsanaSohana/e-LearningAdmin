@@ -9,4 +9,5 @@ class exam extends Model
 {
     use HasFactory;
     protected $fillable=['exam_name','duration','start_time','end_time','subject_id','batch_id'];
+    
 }
