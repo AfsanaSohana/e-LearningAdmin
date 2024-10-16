@@ -1,32 +1,33 @@
 <?php
 
-// use Illuminate\Database\Migrations\Migration;
-// use Illuminate\Database\Schema\Blueprint;
-// use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
-// return new class extends Migration
-// {
-//     /**
-//      * Run the migrations.
-//      */
-//     public function up(): void
-//     {
-//         Schema::create('routines', function (Blueprint $table) {
-//             $table->id();
-//             $table->integer('batch_id');
-//             $table->string('day_name');
-//             $table->datetime('start_time');
-//             $table->datetime('end_time');
-//             $table->string('note');
-//             $table->timestamps();
-//         });
-//     }
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('routines', function (Blueprint $table) {
+            $table->id();
+            $table->string('batch_id');
+            $table->string('day_name');
+            $table->date('date');
+            $table->time('start_time');
+            $table->time('end_time');
+            $table->string('note');
+            $table->timestamps();
+        });
+    }
 
-//     /**
-//      * Reverse the migrations.
-//      */
-//     public function down(): void
-//     {
-//         Schema::dropIfExists('routines');
-//     }
-// };
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('routines');
+    }
+};
