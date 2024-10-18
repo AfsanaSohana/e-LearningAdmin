@@ -87,3 +87,10 @@ Route::controller(SubjectController::class)->group(function(){
     Route::delete('subject/{subject}','destroy');
     Route::post('subject/create','store');
 });
+Route::controller(SyllabusController::class)->group(function(){
+    Route::get('sylllabus','index');
+    Route::get('sylllabus/{sylllabus}','show');
+    Route::post('sylllabus/edit/{sylllabus}','update');
+    Route::delete('sylllabus/{sylllabus}','destroy');
+    Route::post('sylllabus/create','store');
+});

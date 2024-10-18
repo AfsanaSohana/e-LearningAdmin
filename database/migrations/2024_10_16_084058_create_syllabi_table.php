@@ -11,8 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('syllabi', function (Blueprint $table) {
+        Schema::create('sylllabus', function (Blueprint $table) {
             $table->id();
+            $table->integer('course_id');
+            $table->integer('subject_id');
+            $table->string('title');
+            $table->string('document');
             $table->timestamps();
         });
     }
@@ -22,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('syllabi');
+        Schema::dropIfExists('sylllabus');
     }
 };
