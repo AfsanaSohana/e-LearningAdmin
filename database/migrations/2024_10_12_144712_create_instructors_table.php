@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('fb_id')->notnull();
             $table->string('insta_id')->notnull();
             $table->string('twt_id')->notnull();
+            $table->string('photo')->notnull();
             $table->timestamps();
         });
     }

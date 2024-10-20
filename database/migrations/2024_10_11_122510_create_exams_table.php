@@ -14,11 +14,13 @@ return new class extends Migration
         Schema::create('exams', function (Blueprint $table) {
             $table->id();
             $table->string('exam_name');
+             $table->integer('subject_id');
+            $table->biginteger('batch_id');
             $table->string('duration');
             $table->date('start_time');
             $table->date('end_time');
-            $table->integer('subject_id');
-            $table->biginteger('batch_id');
+            $table->date('date');
+           
             $table->timestamps();
         });
     }
