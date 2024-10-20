@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('duration');
             $table->date('start_time');
             $table->date('end_time');
-            $table->string('subject_id');
+            $table->integer('subject_id');
             $table->biginteger('batch_id');
             $table->timestamps();
         });
