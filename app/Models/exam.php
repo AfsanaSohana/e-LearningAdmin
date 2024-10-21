@@ -13,9 +13,10 @@ class exam extends Model
     {
         return $this->belongsTo(subject::class);
     }    
-    public function course()
+    public function batch()
     {
-        return $this->belongsTo(course::class);
+        return $this->belongsTo(batch::class);
     }   
+   
     
 }
