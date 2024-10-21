@@ -11,6 +11,9 @@ use App\Http\Controllers\Api\InstructorController;
 use App\Http\Controllers\Api\StudentController;
 use App\Http\Controllers\Api\RoutineController;
 use App\Http\Controllers\Api\SubjectController;
+use App\Http\Controllers\Api\SyllabusController;
+use App\Http\Controllers\Api\AssignmentController;
+use App\Http\Controllers\Api\AttendenceController;
 // use App\Http\Controllers\Api\DesignationController;
 /*
 |--------------------------------------------------------------------------
@@ -88,9 +91,23 @@ Route::controller(SubjectController::class)->group(function(){
     Route::post('subject/create','store');
 });
 Route::controller(SyllabusController::class)->group(function(){
-    Route::get('sylllabus','index');
-    Route::get('sylllabus/{sylllabus}','show');
-    Route::post('sylllabus/edit/{sylllabus}','update');
-    Route::delete('sylllabus/{sylllabus}','destroy');
-    Route::post('sylllabus/create','store');
+    Route::get('syllabus','index');
+    Route::get('syllabus/{syllabus}','show');
+    Route::post('syllabus/edit/{syllabus}','update');
+    Route::delete('syllabus/{syllabus}','destroy');
+    Route::post('syllabus/create','store');
+});
+Route::controller(AssignmentController::class)->group(function(){
+    Route::get('assignment','index');
+    Route::get('assignment/{assignment}','show');
+    Route::post('assignment/edit/{assignment}','update');
+    Route::delete('assignment/{assignment}','destroy');
+    Route::post('assignment/create','store');
+});
+Route::controller(AttendenceController::class)->group(function(){
+    Route::get('attendence','index');
+    Route::get('attendence/{attendence}','show');
+    Route::post('attendence/edit/{attendence}','update');
+    Route::delete('attendence/{attendence}','destroy');
+    Route::post('attendence/create','store');
 });
