@@ -9,7 +9,7 @@ use App\Http\Controllers\Api\BaseController;
 class AttendenceController extends BaseController
 {
     public function index(){
-        $data=Attendence::get();
+        $data=Attendence::with('subject','course','student')->get();
         return $this->sendResponse($data,"Attendence data");
     }
 

@@ -14,7 +14,8 @@ use App\Http\Controllers\Api\SubjectController;
 use App\Http\Controllers\Api\SyllabusController;
 use App\Http\Controllers\Api\AssignmentController;
 use App\Http\Controllers\Api\AttendenceController;
-// use App\Http\Controllers\Api\DesignationController;
+use App\Http\Controllers\Api\ExamResultController;
+use App\Http\Controllers\Api\BatchEnrollController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -110,4 +111,18 @@ Route::controller(AttendenceController::class)->group(function(){
     Route::post('attendence/edit/{attendence}','update');
     Route::delete('attendence/{attendence}','destroy');
     Route::post('attendence/create','store');
+});
+Route::controller(ExamResultController::class)->group(function(){
+    Route::get('examResult','index');
+    Route::get('examResult/{examResult}','show');
+    Route::post('examResult/edit/{examResult}','update');
+    Route::delete('examResult/{examResult}','destroy');
+    Route::post('examResult/create','store');
+});
+Route::controller(BatchEnrollController::class)->group(function(){
+    Route::get('batchEnroll','index');
+    Route::get('batchEnroll/{batchEnroll}','show');
+    Route::post('batchEnroll/edit/{batchEnroll}','update');
+    Route::delete('batchEnroll/{batchEnroll}','destroy');
+    Route::post('batchEnroll/create','store');
 });
