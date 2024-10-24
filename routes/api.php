@@ -16,6 +16,7 @@ use App\Http\Controllers\Api\AssignmentController;
 use App\Http\Controllers\Api\AttendenceController;
 use App\Http\Controllers\Api\ExamResultController;
 use App\Http\Controllers\Api\BatchEnrollController;
+use App\Http\Controllers\Api\BatchEnrollRequestController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -125,4 +126,11 @@ Route::controller(BatchEnrollController::class)->group(function(){
     Route::post('batchEnroll/edit/{batchEnroll}','update');
     Route::delete('batchEnroll/{batchEnroll}','destroy');
     Route::post('batchEnroll/create','store');
+});
+Route::controller(BatchEnrollRequestController::class)->group(function(){
+    Route::get('batchEnrollRequest','index');
+    Route::get('batchEnrollRequest/{batchEnrollRequest}','show');
+    Route::post('batchEnrollRequest/edit/{batchEnrollRequest}','update');
+    Route::delete('batchEnrollRequest/{batchEnrollRequest}','destroy');
+    Route::post('batchEnrollRequest/create','store');
 });

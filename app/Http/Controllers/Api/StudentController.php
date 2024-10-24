@@ -15,6 +15,19 @@ class StudentController extends BaseController
 
     public function store(Request $request){
         $data=Student::create($request->all());
+         /* for files */
+         $files=[];
+         if($request->hasFile('files')){
+             foreach($request->file('files') as $f){
+                 $imagename=time().rand(1111,9999).".".$f->extension();
+                 $imagePath=public_path().'/employe';
+                 if($f->move($imagePath,$imagename)){
+                     array_push($files,$imagename);
+                 }
+             }
+         }
+         $input['image']=implode(',',$files);
+         /* /for files */
         return $this->sendResponse($data,"Student created successfully");
     }
     public function show(Student $student){
@@ -22,6 +35,22 @@ class StudentController extends BaseController
     }
 
     public function update(Request $request,$id){
+        $input=$request->all();
+        /* for files */
+        $files=[];
+        if($request->hasFile('files')){
+            foreach($request->file('files') as $f){
+                $imagename=time().rand(1111,9999).".".$f->extension();
+                $imagePath=public_path().'/student';
+                if($f->move($imagePath,$imagename)){
+                    array_push($files,$imagename);
+                }
+            }
+            $input['image']=implode(',',$files);
+        }
+        unset($input['files']);
+
+        /* /for files */
 
         $data=Student::where('id',$id)->update($request->all());
         return $this->sendResponse($id,"Student updated successfully");
