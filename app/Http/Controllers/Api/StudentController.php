@@ -20,7 +20,7 @@ class StudentController extends BaseController
          if($request->hasFile('files')){
              foreach($request->file('files') as $f){
                  $imagename=time().rand(1111,9999).".".$f->extension();
-                 $imagePath=public_path().'/employe';
+                 $imagePath=public_path().'/student';
                  if($f->move($imagePath,$imagename)){
                      array_push($files,$imagename);
                  }
