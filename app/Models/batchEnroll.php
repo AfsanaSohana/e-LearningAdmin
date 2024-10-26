@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class batchEnroll extends Model
 {
     use HasFactory;
-    protected $fillable=['batch_id','course_id','student_id','enroll_date','fees'];
+    protected $fillable=['batch_id','course_id','student_id','enroll_date','fees','trans_number_id','trans_id_id','payment_method_id'];
 
     public function batch()
     {
@@ -21,6 +21,10 @@ class batchEnroll extends Model
     public function subject()
     {
         return $this->belongsTo(subject::class);
+    }    
+    public function batchEnrollRequest()
+    {
+        return $this->belongsTo(batchEnrollRequest::class);
     }    
     
 }

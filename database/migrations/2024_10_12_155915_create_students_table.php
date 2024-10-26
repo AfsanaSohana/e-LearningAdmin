@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('student_name');
             $table->string('contact_number');
             $table->string('email');
-            $table->string('photo');
+            $table->string('photo')->nullable();
             $table->timestamps();
         });
     }

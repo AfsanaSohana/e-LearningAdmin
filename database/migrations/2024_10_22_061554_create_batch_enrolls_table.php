@@ -16,8 +16,11 @@ return new class extends Migration
             $table->integer('batch_id');
             $table->integer('course_id');
             $table->integer('student_id');
-            $table->integer('enroll_date_id');
+            $table->date('enroll_date');
             $table->integer('fees_id');
+            $table->integer('trans_number_id');
+            $table->integer('trans_id_id');
+            $table->integer('payment_method-id');
             $table->timestamps();
         });
     }

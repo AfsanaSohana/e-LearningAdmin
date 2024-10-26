@@ -8,7 +8,7 @@ use App\Http\Controllers\Api\BaseController;
 class BatchEnrollController extends BaseController
 {
     public function index(){
-        $data=BatchEnroll::with('batch','course','student')->get();
+        $data=BatchEnroll::with('batch','course','student','batchEnroll')->get();
         return $this->sendResponse($data,"Batch Enroll data");
     }
 
