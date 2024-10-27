@@ -19,14 +19,14 @@ class StudentController extends BaseController
          $files=[];
          if($request->hasFile('files')){
              foreach($request->file('files') as $f){
-                 $imagename=time().rand(1111,9999).".".$f->extension();
-                 $imagePath=public_path().'/img';
-                 if($f->move($imagePath,$imagename)){
-                     array_push($files,$imagename);
+                 $photoname=time().rand(1111,9999).".".$f->extension();
+                 $photoPath=public_path().'/studentadd';
+                 if($f->move($photoPath,$photoname)){
+                     array_push($files,$photoname);
                  }
              }
          }
-         $input['image']=implode(',',$files);
+         $input['photo']=implode(',',$files);
          /* /for files */
         return $this->sendResponse($data,"Student created successfully");
     }
@@ -40,13 +40,13 @@ class StudentController extends BaseController
         $files=[];
         if($request->hasFile('files')){
             foreach($request->file('files') as $f){
-                $imagename=time().rand(1111,9999).".".$f->extension();
-                $imagePath=public_path().'/img';
-                if($f->move($imagePath,$imagename)){
-                    array_push($files,$imagename);
+                $photoname=time().rand(1111,9999).".".$f->extension();
+                $photoPath=public_path().'/studentadd';
+                if($f->move($photoPath,$photoname)){
+                    array_push($files,$photoname);
                 }
             }
-            $input['image']=implode(',',$files);
+            $input['photo']=implode(',',$files);
         }
         unset($input['files']);
 

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('duration');
             $table->integer('instructor_id');
             $table->integer('course_id');
+            $table->string('number_of_student');
             $table->timestamps();
         });
     }

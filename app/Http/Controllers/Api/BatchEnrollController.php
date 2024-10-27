@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Models\batchEnroll;
+use App\Models\batchEnrollRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Api\BaseController;
 class BatchEnrollController extends BaseController
@@ -30,5 +31,14 @@ class BatchEnrollController extends BaseController
     {
         $batchEnroll=$batchEnroll->delete();
         return $this->sendResponse($batchEnroll,"Batch Enroll deleted successfully");
+    }
+    public function approve($id){
+        $b=batchEnrollRequest::find($id)->toArray();
+
+        $data=BatchEnroll::create($b);
+        if($data){
+           batchEnrollRequest::where('id',$id)->delete();
+        }
+        return $this->sendResponse($id,"Batch Enroll successfully");
     }
 }

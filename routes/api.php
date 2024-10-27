@@ -122,6 +122,7 @@ Route::controller(ExamResultController::class)->group(function(){
 });
 Route::controller(BatchEnrollController::class)->group(function(){
     Route::get('batchEnroll','index');
+    Route::get('batchEnroll/approve/{batchEnroll}','approve');
     Route::get('batchEnroll/{batchEnroll}','show');
     Route::post('batchEnroll/edit/{batchEnroll}','update');
     Route::delete('batchEnroll/{batchEnroll}','destroy');
