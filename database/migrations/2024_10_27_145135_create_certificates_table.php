@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('sylllabus', function (Blueprint $table) {
+        Schema::create('certificates', function (Blueprint $table) {
             $table->id();
+            $table->integer('student_id');
             $table->integer('course_id');
-            $table->integer('subject_id');
-            $table->string('title');
-            $table->string('document');
+            $table->integer('instructor_id');
+            $table->date('passing_date');
+            $table->string('director');
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('sylllabus');
+        Schema::dropIfExists('certificates');
     }
 };

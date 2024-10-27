@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\syllabus;
+use App\Models\Syllabus;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Api\BaseController;
-
 class SyllabusController extends BaseController
 {
     public function index(){
-        $data=Syllabus::with('subject','course')->get();
+        $data=Syllabus::with('course','subject')->get();
         return $this->sendResponse($data,"Syllabus data");
     }
 
@@ -33,5 +32,3 @@ class SyllabusController extends BaseController
         return $this->sendResponse($syllabus,"Syllabus deleted successfully");
     }
 }
-
-

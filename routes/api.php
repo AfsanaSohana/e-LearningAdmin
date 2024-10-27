@@ -11,12 +11,12 @@ use App\Http\Controllers\Api\InstructorController;
 use App\Http\Controllers\Api\StudentController;
 use App\Http\Controllers\Api\RoutineController;
 use App\Http\Controllers\Api\SubjectController;
-use App\Http\Controllers\Api\SyllabusController;
 use App\Http\Controllers\Api\AssignmentController;
 use App\Http\Controllers\Api\AttendenceController;
 use App\Http\Controllers\Api\ExamResultController;
 use App\Http\Controllers\Api\BatchEnrollController;
 use App\Http\Controllers\Api\BatchEnrollRequestController;
+use App\Http\Controllers\Api\CertificateController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -92,13 +92,7 @@ Route::controller(SubjectController::class)->group(function(){
     Route::delete('subject/{subject}','destroy');
     Route::post('subject/create','store');
 });
-Route::controller(SyllabusController::class)->group(function(){
-    Route::get('syllabus','index');
-    Route::get('syllabus/{syllabus}','show');
-    Route::post('syllabus/edit/{syllabus}','update');
-    Route::delete('syllabus/{syllabus}','destroy');
-    Route::post('syllabus/create','store');
-});
+
 Route::controller(AssignmentController::class)->group(function(){
     Route::get('assignment','index');
     Route::get('assignment/{assignment}','show');
@@ -134,4 +128,11 @@ Route::controller(BatchEnrollRequestController::class)->group(function(){
     Route::post('batchEnrollRequest/edit/{batchEnrollRequest}','update');
     Route::delete('batchEnrollRequest/{batchEnrollRequest}','destroy');
     Route::post('batchEnrollRequest/create','store');
+});
+Route::controller(CertificateController::class)->group(function(){
+    Route::get('certificate','index');
+    Route::get('certificate/{certificate}','show');
+    Route::post('certificate/edit/{certificate}','update');
+    Route::delete('certificate/{certificate}','destroy');
+    Route::post('certificate/create','store');
 });
