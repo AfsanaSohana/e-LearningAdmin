@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('attendences', function (Blueprint $table) {
-            $table->integer('subject_id');
-            $table->integer('course_id');
+            $table->integer('subject_id')->nullable();
+            $table->integer('course_id')->nullable();
             $table->integer('student_id');
             $table->date('date');
             $table->string('status');
