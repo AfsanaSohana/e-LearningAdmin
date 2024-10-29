@@ -7,8 +7,15 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Api\BaseController;
 class BatchController extends BaseController
 {
-    public function index(){
-        $data=Batch::with('instructor','course')->get();
+    public function index(Request $r){
+
+        $data=Batch::with('instructor','course')->latest();
+
+        if($r->course_id){
+            $data=$data->where('course_id',$r->course_id);
+        }
+        $data=$data->get();
+
         return $this->sendResponse($data,"Batch data");
     }
 

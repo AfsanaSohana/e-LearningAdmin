@@ -78,6 +78,7 @@ Route::controller(StudentController::class)->group(function(){
     Route::post('student/edit/{student}','update');
     Route::delete('student/{student}','destroy');
     Route::post('student/create','store');
+    Route::post('student/login','_login');
 });
 Route::controller(RoutineController::class)->group(function(){
     Route::get('routine','index');
@@ -124,11 +125,12 @@ Route::controller(BatchEnrollController::class)->group(function(){
     Route::post('batchEnroll/create','store');
 });
 Route::controller(BatchEnrollRequestController::class)->group(function(){
-    Route::get('batchEnrollRequest','index');
-    Route::get('batchEnrollRequest/{batchEnrollRequest}','show');
-    Route::post('batchEnrollRequest/edit/{batchEnrollRequest}','update');
-    Route::delete('batchEnrollRequest/{batchEnrollRequest}','destroy');
-    Route::post('batchEnrollRequest/create','store');
+    Route::get('batch_en_req','index');
+    Route::get('batch_en_req/{batchEnrollRequest}','show');
+    Route::post('batch_en_req/edit/{batchEnrollRequest}','update');
+    Route::delete('batch_en_req/{batchEnrollRequest}','destroy');
+    Route::post('batch_en_req/create','store');
+    Route::get('batch_en_req/approve/{batchEnrollRequest}','approve');
 });
 Route::controller(CertificateController::class)->group(function(){
     Route::get('certificate','index');

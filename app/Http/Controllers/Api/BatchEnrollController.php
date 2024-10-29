@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Api;
 
 use App\Models\batchEnroll;
-use App\Models\batchEnrollRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Api\BaseController;
 class BatchEnrollController extends BaseController

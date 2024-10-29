@@ -16,6 +16,7 @@ class RoutineController extends BaseController
         $data=Routine::create($request->all());
         return $this->sendResponse($data,"Routine created successfully");
     }
+
     public function show(Routine $routine){
         return $this->sendResponse($routine,"Routine data");
     }
