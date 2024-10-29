@@ -17,6 +17,7 @@ use App\Http\Controllers\Api\ExamResultController;
 use App\Http\Controllers\Api\BatchEnrollController;
 use App\Http\Controllers\Api\BatchEnrollRequestController;
 use App\Http\Controllers\Api\CertificateController;
+use App\Http\Controllers\Api\CoursePlanController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -135,4 +136,11 @@ Route::controller(CertificateController::class)->group(function(){
     Route::post('certificate/edit/{certificate}','update');
     Route::delete('certificate/{certificate}','destroy');
     Route::post('certificate/create','store');
+});
+Route::controller(CoursePlanController::class)->group(function(){
+    Route::get('coursePlan','index');
+    Route::get('coursePlan/{coursePlan}','show');
+    Route::post('coursePlan/edit/{coursePlan}','update');
+    Route::delete('coursePlan/{coursePlan}','destroy');
+    Route::post('coursePlan/create','store');
 });

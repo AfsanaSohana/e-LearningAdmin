@@ -11,17 +11,21 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('syllabi', function (Blueprint $table) {
+        Schema::create('course_plans', function (Blueprint $table) {
             $table->id();
+            $table->integer('course_id');
+            $table->integer('subject_id');
+            $table->string('title');
+            $table->string('document');
             $table->timestamps();
         });
     }
 
-    /**
+    /** 
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('syllabi');
+        Schema::dropIfExists('course_plans');
     }
 };
