@@ -17,7 +17,7 @@ return new class extends Migration
             $table->integer('course_id');
             $table->integer('student_id');
             $table->date('enroll_date');
-            $table->string('fees');
+            $table->decimal('fees',10,2);
             $table->string('trans_number');
             $table->string('trans_id');
             $table->string('payment_method');

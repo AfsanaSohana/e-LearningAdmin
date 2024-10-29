@@ -4,6 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+
 return new class extends Migration
 {
     /**
@@ -11,16 +12,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('batch_enrolls', function (Blueprint $table) {
+        Schema::create('assignments', function (Blueprint $table) {
             $table->id();
-            $table->integer('batch_id');
+            $table->string('assignment_name');
+            $table->integer('subject_id');
             $table->integer('course_id');
-            $table->integer('student_id');
-            $table->date('enroll_date');
-            $table->string('fees');
-            $table->string('trans_number');
-            $table->string('trans_id');
-            $table->string('payment_method');
+            $table->string('document');
+            $table->date('date');
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('batch_enrolls');
+        Schema::dropIfExists('assignments');
     }
 };

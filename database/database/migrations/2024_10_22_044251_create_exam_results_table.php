@@ -11,16 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('batch_enrolls', function (Blueprint $table) {
+        Schema::create('exam_results', function (Blueprint $table) {
             $table->id();
-            $table->integer('batch_id');
+            $table->integer('exam_id');
             $table->integer('course_id');
-            $table->integer('student_id');
-            $table->date('enroll_date');
-            $table->string('fees');
-            $table->string('trans_number');
-            $table->string('trans_id');
-            $table->string('payment_method');
+            $table->integer('subject_id');
+            $table->time('start_time');
+            $table->time('end_time');
+            $table->string('obtain_number');
+            $table->string('status');
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('batch_enrolls');
+        Schema::dropIfExists('exam_results');
     }
 };

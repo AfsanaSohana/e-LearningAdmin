@@ -11,16 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('batch_enrolls', function (Blueprint $table) {
+        Schema::create('batches', function (Blueprint $table) {
             $table->id();
-            $table->integer('batch_id');
+            $table->string('batch_name');
+            $table->text('batch_details');
+            $table->string('batch_type');
+            $table->string('duration');
+            $table->integer('instructor_id');
             $table->integer('course_id');
-            $table->integer('student_id');
-            $table->date('enroll_date');
-            $table->string('fees');
-            $table->string('trans_number');
-            $table->string('trans_id');
-            $table->string('payment_method');
+            $table->string('number_of_student');
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('batch_enrolls');
+        Schema::dropIfExists('batches');
     }
 };
