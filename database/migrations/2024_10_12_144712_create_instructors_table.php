@@ -17,10 +17,10 @@ return new class extends Migration
             $table->string('designation');
             $table->integer('contact_number');
             $table->string('email');
-            $table->string('fb_id')->notnull();
-            $table->string('insta_id')->notnull();
-            $table->string('twt_id')->notnull();
-            $table->string('photo')->notnull();
+            $table->string('fb_id')->nullable();
+            $table->string('insta_id')->nullable();
+            $table->string('twt_id')->nullable();
+            $table->string('photo')->nullable();
             $table->timestamps();
         });
     }
