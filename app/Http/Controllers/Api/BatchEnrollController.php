@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Models\batchEnroll;
 use Illuminate\Http\Request;
+use App\Models\BatchEnrollRequest;
 use App\Http\Controllers\Api\BaseController;
 class BatchEnrollController extends BaseController
 {
@@ -40,4 +41,33 @@ class BatchEnrollController extends BaseController
         }
         return $this->sendResponse($id,"Batch Enroll successfully");
     }
+    public function moveAndFetchData()
+{
+    // Fetch all records from BatchEnrollRequest
+    $requests = BatchEnrollRequest::all();
+
+    // Loop through each request and insert into BatchEnroll
+    foreach ($requests as $request) {
+    BatchEnroll::create([
+        'batch_id' => $request->batch_id,
+        'course_id' => $request->course_id,
+        'student_id' => $request->student_id,
+        'enroll_date' => $request->enroll_date,
+        'fees' => $request->fees,
+        'trans_number' => $request->trans_number,
+        'trans_id' => $request->trans_id,
+        'payment_method' => $request->payment_method,
+        
+        ]);
+    }
+    // Delete all records from BatchEnrollRequest
+    BatchEnrollRequest::truncate();
+
+    // Fetch updated data from BatchEnroll to return to the front end
+    $batchEnrolls = BatchEnroll::all();
+
+    return response()->json($batchEnrolls);
+}
+
+
 }

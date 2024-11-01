@@ -21,4 +21,8 @@ class batchEnrollRequest extends Model
     {
         return $this->belongsTo(student::class);
     }
+    public function batchEnroll()
+    {
+        return $this->belongsTo(BatchEnroll::class);
+    }
 }

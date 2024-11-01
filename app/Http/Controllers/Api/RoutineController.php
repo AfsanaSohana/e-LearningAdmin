@@ -8,7 +8,7 @@ use App\Http\Controllers\Api\BaseController;
 class RoutineController extends BaseController
 {
     public function index(){
-        $data=Routine::get();
+        $data=Routine::with('batch')->get();
         return $this->sendResponse($data,"Routine data");
     }
 

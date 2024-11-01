@@ -22,9 +22,9 @@ class batchEnroll extends Model
     {
         return $this->belongsTo(subject::class);
     }
-    public function batchEnrollRequest()
-    {
-        return $this->belongsTo(batchEnrollRequest::class);
-    }
+    public function batchEnrollRequests()
+{
+    return $this->hasMany(BatchEnrollRequest::class);
+}
 
 }

@@ -123,6 +123,7 @@ Route::controller(BatchEnrollController::class)->group(function(){
     Route::post('batchEnroll/edit/{batchEnroll}','update');
     Route::delete('batchEnroll/{batchEnroll}','destroy');
     Route::post('batchEnroll/create','store');
+    Route::get('/batch-enroll/move-and-fetch', [BatchEnrollController::class, 'moveAndFetchData']);
 });
 Route::controller(BatchEnrollRequestController::class)->group(function(){
     Route::get('batch_en_req','index');
@@ -131,6 +132,7 @@ Route::controller(BatchEnrollRequestController::class)->group(function(){
     Route::delete('batch_en_req/{batchEnrollRequest}','destroy');
     Route::post('batch_en_req/create','store');
     Route::get('batch_en_req/approve/{batchEnrollRequest}','approve');
+    
 });
 Route::controller(CertificateController::class)->group(function(){
     Route::get('certificate','index');
@@ -146,3 +148,4 @@ Route::controller(CoursePlanController::class)->group(function(){
     Route::delete('coursePlan/{coursePlan}','destroy');
     Route::post('coursePlan/create','store');
 });
+
