@@ -9,7 +9,7 @@ use App\Http\Controllers\Api\BaseController;
 class StudentController extends BaseController
 {
     public function index(){
-        $data=Student::get();
+        $data=student::get();
         return $this->sendResponse($data,"Student data");
     }
 
