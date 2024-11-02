@@ -14,7 +14,22 @@ class InstructorController extends BaseController
     }
 
     public function store(Request $request){
-        $data=Instructor::create($request->all());
+        $input=$request->all();
+         /* for files */
+         $files=[];
+         if($request->hasFile('files')){
+            foreach($request->file('files') as $f){
+                $photoname=time().rand(1111,9999).".".$f->extension();
+                $photoPath=public_path().'/instructoradd';
+                if($f->move($photoPath,$photoname)){
+                    array_push($files,$photoname);
+                }
+            }
+        }
+
+        $input['photo']=implode(',',$files);
+         /* /for files */
+        $data=Instructor::create($input);
         return $this->sendResponse($data,"Instructor created successfully");
     }
     public function show(Instructor $instructor){
@@ -22,6 +37,23 @@ class InstructorController extends BaseController
     }
 
     public function update(Request $request,$id){
+        $input=$request->all();
+        /* for files */
+        $files=[];
+        if($request->hasFile('files')){
+            foreach($request->file('files') as $f){
+                $photoname=time().rand(1111,9999).".".$f->extension();
+                $photoPath=public_path().'/instructoradd';
+                if($f->move($photoPath,$photoname)){
+                    array_push($files,$photoname);
+                }
+            }
+            $input['photo']=implode(',',$files);
+        }
+        unset($input['files']);
+
+        /* /for files */
+
 
         $data=Instructor::where('id',$id)->update($request->all());
         return $this->sendResponse($id,"Instructor updated successfully");
