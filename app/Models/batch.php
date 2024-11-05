@@ -18,5 +18,5 @@ class Batch extends Model
     {
         return $this->belongsTo(course::class);
     }    
-    
+
 }

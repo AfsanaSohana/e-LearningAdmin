@@ -18,6 +18,7 @@ use App\Http\Controllers\Api\BatchEnrollController;
 use App\Http\Controllers\Api\BatchEnrollRequestController;
 use App\Http\Controllers\Api\CertificateController;
 use App\Http\Controllers\Api\CoursePlanController;
+use App\Http\Controllers\Api\BatchLectureSheetController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -147,5 +148,12 @@ Route::controller(CoursePlanController::class)->group(function(){
     Route::post('coursePlan/edit/{coursePlan}','update');
     Route::delete('coursePlan/{coursePlan}','destroy');
     Route::post('coursePlan/create','store');
+});
+Route::controller(BatchLectureSheetController::class)->group(function(){
+    Route::get('batchLectureSheet','index');
+    Route::get('batchLectureSheet/{batchLectureSheet}','show');
+    Route::post('batchLectureSheet/edit/{batchLectureSheet}','update');
+    Route::delete('batchLectureSheet/{batchLectureSheet}','destroy');
+    Route::post('batchLectureSheet/create','store');
 });
 
