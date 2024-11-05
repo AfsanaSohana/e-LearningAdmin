@@ -19,6 +19,7 @@ use App\Http\Controllers\Api\BatchEnrollRequestController;
 use App\Http\Controllers\Api\CertificateController;
 use App\Http\Controllers\Api\CoursePlanController;
 use App\Http\Controllers\Api\BatchLectureSheetController;
+use App\Http\Controllers\Api\ClassIfoController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -155,5 +156,12 @@ Route::controller(BatchLectureSheetController::class)->group(function(){
     Route::post('batchLectureSheet/edit/{batchLectureSheet}','update');
     Route::delete('batchLectureSheet/{batchLectureSheet}','destroy');
     Route::post('batchLectureSheet/create','store');
+});
+Route::controller(ClassIfoController::class)->group(function(){
+    Route::get('classIfo','index');
+    Route::get('classIfo/{classIfo}','show');
+    Route::post('classIfo/edit/{classIfo}','update');
+    Route::delete('classIfo/{classIfo}','destroy');
+    Route::post('classIfo/create','store');
 });
 
