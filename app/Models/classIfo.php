@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class classIfo extends Model
 {
     use HasFactory; 
-    protected $fillable=['course_id','batch_id','batch_banner_id','class_time_id','class_day','subject_id','instructor_id','instructo_details_id'];
+    protected $fillable=['course_id','batch_id','subject_id','batch_banner_id','class_time_id','class_day','instructor_id','instructo_details_id'];
     public function course()
     {
         return $this->belongsTo(course::class);
