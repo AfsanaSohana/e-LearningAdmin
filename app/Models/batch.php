@@ -16,7 +16,11 @@ class Batch extends Model
     }    
     public function course()
     {
-        return $this->belongsTo(course::class);
+        return $this->belongsTo(course::class)->with('courseplan');
+    }    
+    public function routine()
+    {
+        return $this->hasMany(routine::class);
     }    
 
 }

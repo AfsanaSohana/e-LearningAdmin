@@ -9,7 +9,7 @@ class BatchController extends BaseController
 {
     public function index(Request $r){
 
-        $data=Batch::with('instructor','course')->latest();
+        $data=Batch::with('instructor','course','routine')->latest();
 
         if($r->course_id){
             $data=$data->where('course_id',$r->course_id);
@@ -23,7 +23,8 @@ class BatchController extends BaseController
         $data=Batch::create($request->all());
         return $this->sendResponse($data,"Batch created successfully");
     }
-    public function show(Batch $batch){
+    public function show( $id){
+        $batch=Batch::with('instructor','course','routine')->where('id',$id)->first();
         return $this->sendResponse($batch,"Batch data");
     }
 
