@@ -20,6 +20,10 @@ return new class extends Migration
             $table->integer('course_id');
             $table->string('number_of_student');
             $table->text('batch_details');
+            $table->string('number_of_subject');
+            $table->string('daily_live');
+            $table->string('weekly_exam');
+            $table->string('live_link')->nullable();
             $table->timestamps();
         });
     }

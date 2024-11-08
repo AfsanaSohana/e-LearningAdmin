@@ -149,6 +149,7 @@ Route::controller(CoursePlanController::class)->group(function(){
     Route::post('coursePlan/edit/{coursePlan}','update');
     Route::delete('coursePlan/{coursePlan}','destroy');
     Route::post('coursePlan/create','store');
+    Route::post('coursePlan/upload-document','uploadDocument');
 });
 Route::controller(BatchLectureSheetController::class)->group(function(){
     Route::get('batchLectureSheet','index');
