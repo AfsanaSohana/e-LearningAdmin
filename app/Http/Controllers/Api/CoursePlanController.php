@@ -11,24 +11,39 @@ class CoursePlanController extends BaseController
         $data=CoursePlan::with('course','subject')->get();
         return $this->sendResponse($data,"CoursePlan data");
     }
-    // // for DOCUMENT 
-    // public function uploadDocument(Request $request)  
-    // {
-    //     $request->validate([
-    //         'document' => 'required|file|mimes:pdf,doc,docx|max:2048',
-    //     ]);
-
-    //     // Store the file
-    //     if ($request->file('document')) {
-    //         $filePath = $request->file('document')->store('documents', 'public');
-    //         return response()->json(['file_path' => $filePath], 201);
-    //     }
-
-    //     return response()->json(['message' => 'File not uploaded'], 400);
-    // }
-    // //
+    
+  
     public function store(Request $request){
         $data=CoursePlan::create($request->all());
+          /* for files */
+           /* for document*/ 
+         if($request->hasFile('document')){
+            $document=[];
+            foreach($request->file('document') as $f){
+                $docname=time().rand(1111,9999).".".$f->extension();
+                $docPath=public_path().'/studentadd';
+                if($f->move($docPath,$docname)){
+                    array_push($document,$docname);
+                }
+            }
+            $input[' document']=implode(',',$document);
+        }
+        /* for model sheet*/ 
+         if($request->hasFile('model_sheet')){
+            $model_sheet=[];
+            foreach($request->file('model_sheet') as $f){
+                $modeloname=time().rand(1111,9999).".".$f->extension();
+                $modelPath=public_path().'/studentadd';
+                if($f->move($modelPath,$modeloname)){
+                    array_push($model_sheet,$modeloname);
+                }
+            }
+            $input['model_sheet']=implode(',',$model_sheet);
+        }
+
+        
+         /* /for files */
+        
         return $this->sendResponse($data,"CoursePlan created successfully");
     }
     public function show(CoursePlan $coursePlan){
@@ -38,6 +53,35 @@ class CoursePlanController extends BaseController
     public function update(Request $request,$id){
 
         $data=CoursePlan::where('id',$id)->update($request->all());
+          /* for files */
+          if($request->hasFile('document')){
+            $document=[];
+            foreach($request->file('document') as $f){
+                $docname=time().rand(1111,9999).".".$f->extension();
+                $docPath=public_path().'/studentadd';
+                if($f->move($docPath,$docname)){
+                    array_push($document,$docname);
+                }
+            }
+            $input['document']=implode(',',$document);
+            unset($input['document']);
+        }
+         /* for model sheet*/ 
+          if($request->hasFile('model_sheet')){
+            $model_sheet=[];
+            foreach($request->file('model_sheet') as $f){
+                $modeloname=time().rand(1111,9999).".".$f->extension();
+                $modelPath=public_path().'/studentadd';
+                if($f->move($modelPath,$modeloname)){
+                    array_push($model_sheet,$modeloname);
+                }
+            }
+            $input['model_sheet']=implode(',',$model_sheet);
+            unset($input['model_sheet']);
+        }
+
+        /* /for files */
+
         return $this->sendResponse($id,"CoursePlan updated successfully");
     }
 

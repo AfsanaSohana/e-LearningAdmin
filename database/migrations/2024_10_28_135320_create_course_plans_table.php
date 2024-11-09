@@ -17,6 +17,8 @@ return new class extends Migration
             $table->integer('subject_id');
             $table->string('title');
             $table->string('document');
+            $table->string('model_test');
+            $table->string('model_sheet');
             $table->timestamps();
         });
     }
