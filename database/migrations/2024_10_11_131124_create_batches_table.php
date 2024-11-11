@@ -23,7 +23,9 @@ return new class extends Migration
             $table->string('number_of_subject');
             $table->string('daily_live');
             $table->string('weekly_exam');
-            $table->string('live_link')->nullable();
+            $table->string('live_link');
+            $table->string('price');
+            $table->string('discount_price');
             $table->timestamps();
         });
     }

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Batch extends Model
 {
     use HasFactory;
-    protected $fillable=['batch_name', 'batch_type','duration','instructor_id','course_id','number_of_student','batch_details','number_of_subject','daily_live','weekly_exam','live_link'];
+    protected $fillable=['batch_name', 'batch_type','duration','instructor_id','course_id','number_of_student','batch_details','number_of_subject','daily_live','weekly_exam','live_link','price','discount_price'];
 
     public function instructor()
     {
