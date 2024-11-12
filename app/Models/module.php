@@ -5,15 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class assignment extends Model
+class module extends Model
 {
     use HasFactory;
-    protected $fillable=['assignment_name','subject_id','course_id','batch_id','document','date'];
-
-    public function subject()
-    {
-        return $this->belongsTo(subject::class);
-    }    
+      protected $fillable=['course_id','batch_id','module_1','module_2','module_3','module_4'];
     public function course()
     {
         return $this->belongsTo(course::class);
@@ -21,7 +16,5 @@ class assignment extends Model
     public function batch()
     {
         return $this->belongsTo(batch::class);
-    }    
-    
+    }   
 }
-

@@ -8,7 +8,7 @@ use App\Http\Controllers\Api\BaseController;
 class AssignmentController extends BaseController
 {
     public function index(){
-        $data=Assignment::get();
+        $data=Assignment::with('subject','course','batch')->get();
         return $this->sendResponse($data,"Assignment data");
     }
 

@@ -12,6 +12,7 @@ class BatchLectureSheetController extends BaseController
         if($r->batch_id){
             $data=$data->where('batch_id',$r->batch_id);
         }
+        
         $data=$data->get();
         return $this->sendResponse($data,"BatchLectureSheet data");
     }

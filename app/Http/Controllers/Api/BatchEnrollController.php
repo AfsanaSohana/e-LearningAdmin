@@ -8,8 +8,13 @@ use App\Models\BatchEnrollRequest;
 use App\Http\Controllers\Api\BaseController;
 class BatchEnrollController extends BaseController
 {
-    public function index(){
-        $data=BatchEnroll::with('batch','course','student','batchEnroll')->get();
+    public function index(Request $r){
+        $data=BatchEnroll::with('batch','course','student');
+         if($r->student_id){
+            $data=$data->where('student_id',$r->student_id);
+        }
+        $data=$data->get();
+
         return $this->sendResponse($data,"Batch Enroll data");
     }
 

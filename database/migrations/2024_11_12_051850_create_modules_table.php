@@ -11,16 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('class_ifos', function (Blueprint $table) {
+        Schema::create('modules', function (Blueprint $table) {
             $table->id();
             $table->integer('course_id');
             $table->integer('batch_id');
-            $table->integer('batch_banner_id');
-            $table->integer('class_time_id');
-            $table->integer('class_day');
-            $table->integer('subject_id');
-            $table->integer('instructor_id');
-            $table->integer('instructor_details_id');
+            $table->string('module_1');
+            $table->string('module_2');
+            $table->string('module_3');
+            $table->string('module_4');
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('class_ifos');
+        Schema::dropIfExists('modules');
     }
 };
