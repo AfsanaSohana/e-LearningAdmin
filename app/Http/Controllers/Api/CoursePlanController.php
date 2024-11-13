@@ -14,25 +14,25 @@ class CoursePlanController extends BaseController
     
   
     public function store(Request $request){
-        $data=CoursePlan::create($request->all());
+        $input=$request->all();
           /* for files */
            /* for document*/ 
          if($request->hasFile('document')){
             $document=[];
             foreach($request->file('document') as $f){
-                $docname=time().rand(1111,9999).".".$f->extension();
+                $docname=time().rand(1111,9999)."-".$f->getClientOriginalName();
                 $docPath=public_path().'/studentadd';
                 if($f->move($docPath,$docname)){
                     array_push($document,$docname);
                 }
             }
-            $input[' document']=implode(',',$document);
+            $input['document']=implode(',',$document);
         }
         /* for model sheet*/ 
          if($request->hasFile('model_sheet')){
             $model_sheet=[];
             foreach($request->file('model_sheet') as $f){
-                $modeloname=time().rand(1111,9999).".".$f->extension();
+                $modeloname=time().rand(1111,9999)."-".$f->getClientOriginalName();
                 $modelPath=public_path().'/studentadd';
                 if($f->move($modelPath,$modeloname)){
                     array_push($model_sheet,$modeloname);
@@ -41,6 +41,7 @@ class CoursePlanController extends BaseController
             $input['model_sheet']=implode(',',$model_sheet);
         }
 
+        $data=CoursePlan::create($input);
         
          /* /for files */
         
@@ -64,7 +65,6 @@ class CoursePlanController extends BaseController
                 }
             }
             $input['document']=implode(',',$document);
-            unset($input['document']);
         }
          /* for model sheet*/ 
           if($request->hasFile('model_sheet')){
@@ -77,7 +77,6 @@ class CoursePlanController extends BaseController
                 }
             }
             $input['model_sheet']=implode(',',$model_sheet);
-            unset($input['model_sheet']);
         }
 
         /* /for files */
