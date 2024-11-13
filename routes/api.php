@@ -20,6 +20,7 @@ use App\Http\Controllers\Api\CertificateController;
 use App\Http\Controllers\Api\CoursePlanController;
 use App\Http\Controllers\Api\BatchLectureSheetController;
 use App\Http\Controllers\Api\ClassIfoController;
+use App\Http\Controllers\Api\ModuleController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -158,11 +159,18 @@ Route::controller(BatchLectureSheetController::class)->group(function(){
     Route::delete('batchLectureSheet/{batchLectureSheet}','destroy');
     Route::post('batchLectureSheet/create','store');
 });
-Route::controller(ClassIfoController::class)->group(function(){
-    Route::get('classIfo','index');
-    Route::get('classIfo/{classIfo}','show');
-    Route::post('classIfo/edit/{classIfo}','update');
-    Route::delete('classIfo/{classIfo}','destroy');
-    Route::post('classIfo/create','store');
+// Route::controller(ClassIfoController::class)->group(function(){
+//     Route::get('classIfo','index');
+//     Route::get('classIfo/{classIfo}','show');
+//     Route::post('classIfo/edit/{classIfo}','update');
+//     Route::delete('classIfo/{classIfo}','destroy');
+//     Route::post('classIfo/create','store');
+// });
+Route::controller(ModuleController::class)->group(function(){
+    Route::get('module','index');
+    Route::get('module/{module}','show');
+    Route::post('module/edit/{module}','update');
+    Route::delete('module/{classIfo}','destroy');
+    Route::post('module/create','store');
 });
 

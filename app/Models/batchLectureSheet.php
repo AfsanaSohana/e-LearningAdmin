@@ -12,7 +12,7 @@ class batchLectureSheet extends Model
     e_id','batch_id','subject_id','l_sheet_name','number_of_l_sheet'];
      public function course()
     {
-        return $this->belongsTo(course::class);
+        return $this->belongsTo(course::class)->with('module');
     }
      public function batch()
     {
@@ -22,4 +22,5 @@ class batchLectureSheet extends Model
     {
         return $this->belongsTo(subject::class);
     }
+       
 }
