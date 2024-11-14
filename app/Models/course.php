@@ -13,8 +13,5 @@ class Course extends Model
     {
         return $this->hasMany(CoursePlan::class);
     }  
-    public function Module()
-    {
-        return $this->hasMany(Module::class);
-    }  
+    
 }

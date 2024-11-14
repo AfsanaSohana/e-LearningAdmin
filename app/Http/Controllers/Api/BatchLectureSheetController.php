@@ -8,7 +8,7 @@ use App\Http\Controllers\Api\BaseController;
 class BatchLectureSheetController extends BaseController
 {
     public function index(){
-        $data=BatchLectureSheet::with('course','batch','subject','batch')->get();
+        $data=BatchLectureSheet::with('course','batch','subject','module','exam','assignment')->latest();
         if($r->batch_id){
             $data=$data->where('batch_id',$r->batch_id);
         }
@@ -21,9 +21,11 @@ class BatchLectureSheetController extends BaseController
         $data=BatchLectureSheet::create($request->all());
         return $this->sendResponse($data,"BatchLectureSheet created successfully");
     }
-    public function show(BatchLectureSheet $batchLectureSheet){
-        return $this->sendResponse($batchLectureSheet,"BatchLectureSheet data");
+    public function show( $id){
+        $batchLectureSheet= batchLectureSheet::where('id',$id)->first();
+        return $this->sendResponse( $batchLectureSheet,"Batch data");
     }
+
 
     public function update(Request $request,$id){
 

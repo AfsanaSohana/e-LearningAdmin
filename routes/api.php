@@ -82,6 +82,7 @@ Route::controller(StudentController::class)->group(function(){
     Route::delete('student/{student}','destroy');
     Route::post('student/create','store');
     Route::post('student/login','_login');
+    Route::get('course_details/{id}','CourseData');
 });
 Route::controller(RoutineController::class)->group(function(){
     Route::get('routine','index');
@@ -153,11 +154,11 @@ Route::controller(CoursePlanController::class)->group(function(){
     Route::post('coursePlan/upload-document','uploadDocument');
 });
 Route::controller(BatchLectureSheetController::class)->group(function(){
-    Route::get('batchLectureSheet','index');
-    Route::get('batchLectureSheet/{batchLectureSheet}','show');
-    Route::post('batchLectureSheet/edit/{batchLectureSheet}','update');
-    Route::delete('batchLectureSheet/{batchLectureSheet}','destroy');
-    Route::post('batchLectureSheet/create','store');
+    Route::get('batchLecturesheet','index');
+    Route::get('batchLecturesheet/{id}','show');
+    Route::post('batchLecturesheet/edit/{batchLectureSheet}','update');
+    Route::delete('batchLecturesheet/{batchLectureSheet}','destroy');
+    Route::post('batchLecturesheet/create','store');
 });
 // Route::controller(ClassIfoController::class)->group(function(){
 //     Route::get('classIfo','index');

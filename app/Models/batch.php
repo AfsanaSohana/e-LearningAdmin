@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Batch extends Model
 {
     use HasFactory;
-    protected $fillable=['batch_name', 'batch_type','duration','instructor_id','course_id','number_of_student','batch_details','number_of_subject','daily_live','weekly_exam','live_link','price','discount_price'];
+    protected $fillable=['batch_name', 'batch_type','duration','instructor_id','course_id','number_of_student','batch_details','number_of_subject','daily_live','weekly_exam','live_link','price','discount_price',];
 
     public function instructor()
     {
@@ -21,6 +21,18 @@ class Batch extends Model
     public function routine()
     {
         return $this->hasMany(routine::class);
-    }    
+    } 
+    public function Module()
+    {
+        return $this->hasMany(Module::class);
+    }     
+    public function assignment()
+    {
+        return $this->hasMany(assignment::class);
+    }     
+    public function exam()
+    {
+        return $this->hasMany(exam::class);
+    }     
 
 }

@@ -9,18 +9,18 @@ class batchLectureSheet extends Model
 {
     use HasFactory;
     protected $fillable=['cours
-    e_id','batch_id','subject_id','l_sheet_name','number_of_l_sheet'];
+    e_id','batch_id','subject_id','l_sheet_name','number_of_l_sheet',''];
      public function course()
     {
-        return $this->belongsTo(course::class)->with('module');
+        return $this->belongsTo(course::class);
     }
      public function batch()
     {
-        return $this->belongsTo(batch::class);
+        return $this->belongsTo(batch::class)->with('module','assignment','exam');
     }
     public function subject()
     {
         return $this->belongsTo(subject::class);
     }
-       
+
 }

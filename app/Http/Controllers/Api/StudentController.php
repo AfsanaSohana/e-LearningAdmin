@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Models\student;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Api\BaseController;
+use App\Models\Batch;
 
 class StudentController extends BaseController
 {
@@ -77,6 +78,12 @@ class StudentController extends BaseController
             return $this->sendError(['error'=>'contact number or password is not correct'],"Unauthorized",400);
         }
     }
+
+    public function CourseData( $id){
+        $data= Batch::with('course','exam','assignment','module' )->where('id',$id)->first();
+        return $this->sendResponse( $data,"Batch data");
+    }
+
 
 }
 
