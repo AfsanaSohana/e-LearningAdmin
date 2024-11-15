@@ -15,7 +15,7 @@ class exam extends Model
     }    
     public function batch()
     {
-        return $this->hasMany(batch::class);
+        return $this->belongsTo(batch::class);
     }   
    
     

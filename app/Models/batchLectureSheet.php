@@ -8,8 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class batchLectureSheet extends Model
 {
     use HasFactory;
-    protected $fillable=['cours
-    e_id','batch_id','subject_id','l_sheet_name','number_of_l_sheet',''];
+    protected $fillable=['course_id','batch_id','subject_id','l_sheet_name','number_of_l_sheet','module_id','assignment_id','exam_id'];
      public function course()
     {
         return $this->belongsTo(course::class);

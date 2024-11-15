@@ -159,6 +159,8 @@ Route::controller(BatchLectureSheetController::class)->group(function(){
     Route::post('batchLecturesheet/edit/{batchLectureSheet}','update');
     Route::delete('batchLecturesheet/{batchLectureSheet}','destroy');
     Route::post('batchLecturesheet/create','store');
+    Route::get('course_details/{id}','course_details');
+
 });
 // Route::controller(ClassIfoController::class)->group(function(){
 //     Route::get('classIfo','index');
