@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('assignment_name');
             $table->integer('subject_id');
             $table->integer('course_id');
-            $table->string('document');
+            $table->string('document')->nullable();
             $table->date('date');
             $table->timestamps();
         });

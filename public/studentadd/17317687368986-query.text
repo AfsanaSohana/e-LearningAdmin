@@ -1,0 +1,8 @@
+ alter table vehicle add column vehicle_type varchar(255) after registration_no;
+ alter table seat drop column seat_type;
+
+create table counter (id int auto_increment primary key, counter_name varchar(255), contact_no varchar(255), area_id int, district_id int, division_id int, address varchar(255), contact_person varchar(255), created_at datetime, created_by int, updated_at datetime, updated_by int, deleted_at datetime);
+
+alter table district modify column district_name varchar(255);
+
+alter table division modify column division_name varchar(255);

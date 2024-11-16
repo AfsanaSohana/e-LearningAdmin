@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('l_sheet_name');
             $table->string('number_of_l_sheet');
             $table->integer('module_id');
-            $table->integer('assignment_id');
+            $table->integer('assignment_id')->nullable();
             $table->integer('exam_id');
             $table->timestamps();
         });

@@ -8,7 +8,7 @@ use App\Http\Controllers\Api\BaseController;
 class CertificateController extends BaseController
 {
     public function index(){
-        $data=Syllabus::with('student','course','instructor')->get();
+        $data=Certificate::with('student','course','instructor')->get();
         return $this->sendResponse($data,"Certificate data");
     }
 

@@ -1,0 +1,41 @@
+chapter 30
+
+1 .A trigger is a task that executes in response to some predefined database event, such as after 
+a new row is added  to a particular table.Specifically, this event involves inserting, modifying, 
+or deleting table data,
+
+2 .why use trriger?
+*purposes of using trigger
+! Audit trails
+! validation
+! Referential integrity enforcement
+3 . Foreign key is the term used for a 
+column that identifies a key from another table and thus links the two 
+tables together
+
+ 4 .two scenarios:
+# first involving a before trigger, a trigger that occurs prior to an event
+#and the second 
+involving an after trigger, a trigger that occurs after an event.
+
+ 5 .A before trigger shouldn’t be used to enforce propagation or referential integrity
+
+6 .MySQL version 5.0.2 added support for triggers
+•  trigger  are not supported TEMPORARY tables:
+• Views are not supported:
+• The MySQL database does not allow triggers:
+• Result sets can’t be returned from a trigger:
+• Triggers must be unique:
+ Error handling and reporting support is immature:
+
+7 .view existing triggers in two ways
+# SHOW TRIGGERS command : set of triggers: mysql>SHOW TRIGGERS\G
+#  information schema : displays information about triggers. :mysql>SELECT * FROM INFORMATION_SCHEMA.triggers
+
+ 8 .
+• ad: Execute trigger after a DELETE query has taken place
+• ai: Execute trigger after an INSERT query has taken place
+• au: Execute trigger after an UPDATE query has taken place
+• bd: Execute trigger before a DELETE query has taken place
+• bi: Execute trigger before an INSERT query has taken place
+• bu: Execute trigger before an UPDATE query has taken place

@@ -18,6 +18,7 @@ class BatchLectureSheetController extends BaseController
     }
 
     public function store(Request $request){
+        
         $data=BatchLectureSheet::create($request->all());
         return $this->sendResponse($data,"BatchLectureSheet created successfully");
     }
