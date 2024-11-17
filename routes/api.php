@@ -21,6 +21,7 @@ use App\Http\Controllers\Api\CoursePlanController;
 use App\Http\Controllers\Api\BatchLectureSheetController;
 use App\Http\Controllers\Api\ClassIfoController;
 use App\Http\Controllers\Api\ModuleController;
+use App\Http\Controllers\Api\QuizController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -175,5 +176,16 @@ Route::controller(ModuleController::class)->group(function(){
     Route::post('module/edit/{module}','update');
     Route::delete('module/{classIfo}','destroy');
     Route::post('module/create','store');
+});
+Route::controller(QuizController::class)->group(function(){
+    Route::get('quiz','index');
+    Route::get('quiz/{quiz}','show');
+    Route::post('quiz/edit/{quiz}','update');
+    Route::delete('quiz/{classIfo}','destroy');
+    Route::post('quiz/create','store');
+    Route::get('/quizzes', [QuizController::class, 'index']);
+    Route::post('/quizzes/submit', [QuizController::class, 'evaluate']);
+    Route::get('/quiz-results', [QuizController::class, 'results']);
+    Route::get('/quizzes', [QuizController::class, 'getQuizzes']);
 });
 
