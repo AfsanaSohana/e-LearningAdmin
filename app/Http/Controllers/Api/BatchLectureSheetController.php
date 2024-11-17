@@ -27,8 +27,7 @@ class BatchLectureSheetController extends BaseController
         return $this->sendResponse( $batchLectureSheet,"Batch data");
     }
     public function course_details( $id){
-        $batchLectureSheet= batchLectureSheet::where('id',$id)->first();
-        $data='sohana';
+        $batchLectureSheet= batchLectureSheet::with('course','batch','subject','module','exam','assignment')->where('batch_id',$id)->first();
         return response()->json(["data"=> $batchLectureSheet]);
         // return $this->sendResponse( $$data,"Batch data");
     }

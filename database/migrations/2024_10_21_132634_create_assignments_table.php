@@ -15,6 +15,7 @@ return new class extends Migration
         Schema::create('assignments', function (Blueprint $table) {
             $table->id();
             $table->string('assignment_name');
+            $table->integer('batch_id');
             $table->integer('subject_id');
             $table->integer('course_id');
             $table->string('document')->nullable();

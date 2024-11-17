@@ -1,0 +1,113 @@
+1. what is true for PHP?
+a.php easily suits both end of this specture.
+b.it can consist as oneline code .
+c.no need for the mandatory inclution of libraries
+d. all of avobe.
+
+2. which  feature not match to PHP features?
+a.trails
+b.power
+c.namescape
+d.piller
+
+3. which industry best practices and providing solutions to challenges faced by today’s web application developer?
+a.zend farmwork
+b.sugerCRM
+c Cack PHP
+d.mediawiki
+
+4. PECL is an acronmy that stands for-
+a.PEAR extendend code library
+b.PHP code library
+c.a single extended code library
+d.none of all
+
+5.  Such high-quality standards are a result of the open
+development and auditing process Because -
+a.the source code is freely available for anyone to examine.
+b.PHP runs effiently on low-end hardware.
+c.Anyone can free to join the project.
+d. all of avobe.
+ 
+chapter-2
+
+1. PHP injected what type of content  into HTML?
+a.satatic
+b.numeric
+c.dynamic 
+d.a and b
+
+2. If you want to skip the installing, configuring, and maintenance of the operating system you can go with-
+a.skip it.
+b.next option.
+c.PaaS solution.
+d.go solution.
+
+3. which window start by downloading the binary package of PHP?
+a.windows 10.
+b.windows 7
+c.windows 8
+d.a and c
+
+4.Enabling implicit_flush results-
+a.automatically clearing the output buffer of its contents
+b.automatically  flushing the output buffer of its contents
+c.non of avobe
+d.a and b both
+
+5.PHP Storm provited by-
+a.jon hengry
+b. mark jon
+c.kollibrain
+d.jetbrains
+
+
+chapter -3
+
+1. echo() refferce to-
+a.accepts a list of arguments
+b.just pass it the argument
+c.does not require the parentheses
+d.does not return any value
+
+2. printf("%d bottles of tonic water.",100);
+a.bottles of tonic water100.
+b.100 bottles of tonic water
+c.100 bottles of tonic water.
+d.bottles of tonic water 100.
+
+3. which specifier is (argument considered an integer; presented as a binary number)
+a.%b
+b.%c
+c.%f
+d.%s
+
+4. Each member of the array index also known as-
+a. data
+b.object
+c.key
+d.name
+
+5. score = (double) 13; 
+a. $score = 13
+b. $score = 13.0
+c. $score = 1300
+d. $score = 13.01
+
+6. how to declare variable in PHP
+a.begins with a dollar sign.
+b.begins with equal sign.
+c.end with equal sign.
+d.end with equal sign.
+
+7. PHP’s Superglobal Variables-
+a.can't declared value. 
+b.accessible in function only.
+c.accessible from anywhere.
+d only read on console.
+
+8. Pi(3.141592) define-
+a. aconstant data
+b. a variable
+c. an array
+d. avalue

@@ -13,7 +13,9 @@ class AssignmentController extends BaseController
     }
 
     public function store(Request $request){
+         $input=$request->all();
           /* for files */
+
           $files=[];
           if($request->hasFile('files')){
              foreach($request->file('files') as $f){
@@ -27,7 +29,7 @@ class AssignmentController extends BaseController
  
          $input['document']=implode(',',$files);
           /* /for files */
-        $data=Assignment::create($request->all());
+            $data=Assignment::create($input);
         return $this->sendResponse($data,"Assignment created successfully");
     }
     public function show(Assignment $assignment){
@@ -35,6 +37,7 @@ class AssignmentController extends BaseController
     }
 
     public function update(Request $request,$id){
+        $input=$request->all();
           /* for files */
           $files=[];
           if($request->hasFile('files')){
@@ -45,9 +48,9 @@ class AssignmentController extends BaseController
                      array_push($files,$documentname);
                  }
              }
+             $input['document']=implode(',',$files);
          }
- 
-         $input['document']=implode(',',$files);
+          unset($input['files']);
           /* /for files */
         $data=Assignment::where('id',$id)->update($request->all());
         return $this->sendResponse($id,"Assignment updated successfully");
