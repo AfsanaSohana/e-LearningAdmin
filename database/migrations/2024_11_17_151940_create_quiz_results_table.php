@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->integer('student_id');
             $table->integer('quiz_id');
-            $table->integer('total_questions');
-            $table->integer('correct_answers');
-            $table->float('score');
+            $table->string('total_questions');
+            $table->string('correct_answers');
+            $table->string('score');
             $table->timestamps();
         });
     }

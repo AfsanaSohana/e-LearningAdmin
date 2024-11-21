@@ -14,7 +14,10 @@ return new class extends Migration
         Schema::create('quizzes', function (Blueprint $table) {
             $table->id();
             $table->text('question');
-            $table->json('options');
+            $table->string('options_a');
+            $table->string('options_b');
+            $table->string('options_c');
+            $table->string('options_d');
             $table->string('correct_answer');
             $table->timestamps();
         });

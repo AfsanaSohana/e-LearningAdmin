@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class QuizResult extends Model
 {
     use HasFactory;
-    protected $fillable=['student_id','quiz_id','total_questions','correct_answers','score','integer'];
+    protected $fillable=['student_id','quiz_id','total_questions','correct_answers','score'];
     public function student()
     {
         return $this->belongsTo(student::class);
