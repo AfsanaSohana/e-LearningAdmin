@@ -163,13 +163,6 @@ Route::controller(BatchLectureSheetController::class)->group(function(){
     Route::get('course_details/{id}','course_details');
 
 });
-// Route::controller(ClassIfoController::class)->group(function(){
-//     Route::get('classIfo','index');
-//     Route::get('classIfo/{classIfo}','show');
-//     Route::post('classIfo/edit/{classIfo}','update');
-//     Route::delete('classIfo/{classIfo}','destroy');
-//     Route::post('classIfo/create','store');
-// });
 Route::controller(ModuleController::class)->group(function(){
     Route::get('module','index');
     Route::get('module/{module}','show');
@@ -183,9 +176,16 @@ Route::controller(QuizController::class)->group(function(){
     Route::post('quiz/edit/{quiz}','update');
     Route::delete('quiz/{classIfo}','destroy');
     Route::post('quiz/create','store');
-    Route::get('/quizzes', [QuizController::class, 'index']);
-    Route::post('/quizzes/submit', [QuizController::class, 'evaluate']);
-    Route::get('/quiz-results', [QuizController::class, 'results']);
-    Route::get('/quizzes', [QuizController::class, 'getQuizzes']);
+    // Route::get('/quizzes', [QuizController::class, 'index']);
+    // Route::post('/quizzes/submit', [QuizController::class, 'evaluate']);
+    // Route::get('/quiz-results', [QuizController::class, 'results']);
+    // Route::get('/quizzes', [QuizController::class, 'getQuizzes']);
 });
 
+Route::controller(ModuleController::class)->group(function(){
+    Route::get('module','index');
+    Route::get('module/{module}','show');
+    Route::post('module/edit/{module}','update');
+    Route::delete('module/{classIfo}','destroy');
+    Route::post('module/create','store');
+});
