@@ -176,16 +176,19 @@ Route::controller(QuizController::class)->group(function(){
     Route::post('quiz/edit/{quiz}','update');
     Route::delete('quiz/{classIfo}','destroy');
     Route::post('quiz/create','store');
-    // Route::get('/quizzes', [QuizController::class, 'index']);
-    // Route::post('/quizzes/submit', [QuizController::class, 'evaluate']);
-    // Route::get('/quiz-results', [QuizController::class, 'results']);
-    // Route::get('/quizzes', [QuizController::class, 'getQuizzes']);
 });
 
-Route::controller(ModuleController::class)->group(function(){
-    Route::get('module','index');
-    Route::get('module/{module}','show');
-    Route::post('module/edit/{module}','update');
-    Route::delete('module/{classIfo}','destroy');
-    Route::post('module/create','store');
+Route::controller(ResultDetailsController::class)->group(function(){
+    Route::get('resultDetails','index');
+    Route::get('resultDetails/{resultDetails}','show');
+    Route::post('resultDetails/edit/{resultDetails}','update');
+    Route::delete('resultDetails/{classIfo}','destroy');
+    Route::post('resultDetails/create','store');
+});
+Route::controller(QuizResultController::class)->group(function(){
+    Route::get('quizResult','index');
+    Route::get('quizResult/{quizResult}','show');
+    Route::post('quizResult/edit/{quizResult}','update');
+    Route::delete('quizResult/{quizResult}','destroy');
+    Route::post('quizResult/create','store');
 });
