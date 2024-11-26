@@ -137,7 +137,7 @@ Route::controller(BatchEnrollRequestController::class)->group(function(){
     Route::delete('batch_en_req/{batchEnrollRequest}','destroy');
     Route::post('batch_en_req/create','store');
     Route::get('batch_en_req/approve/{batchEnrollRequest}','approve');
-    
+
 });
 Route::controller(CertificateController::class)->group(function(){
     Route::get('certificate','index');
