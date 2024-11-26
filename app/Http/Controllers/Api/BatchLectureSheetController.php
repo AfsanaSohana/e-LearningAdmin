@@ -7,18 +7,18 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Api\BaseController;
 class BatchLectureSheetController extends BaseController
 {
-    public function index(){
+    public function index(Request $request){
         $data=BatchLectureSheet::with('course','batch','subject','module','exam','assignment')->latest();
-        if($r->batch_id){
-            $data=$data->where('batch_id',$r->batch_id);
+        if($request->batch_id){
+            $data=$data->where('batch_id',$request->batch_id);
         }
-        
+
         $data=$data->get();
         return $this->sendResponse($data,"BatchLectureSheet data");
     }
 
     public function store(Request $request){
-        
+
         $data=BatchLectureSheet::create($request->all());
         return $this->sendResponse($data,"BatchLectureSheet created successfully");
     }
