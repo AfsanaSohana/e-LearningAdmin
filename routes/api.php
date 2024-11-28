@@ -22,6 +22,7 @@ use App\Http\Controllers\Api\BatchLectureSheetController;
 use App\Http\Controllers\Api\ClassIfoController;
 use App\Http\Controllers\Api\ModuleController;
 use App\Http\Controllers\Api\QuizController;
+use App\Http\Controllers\Api\QuizResultController;
 /*
 |--------------------------------------------------------------------------
 | API Routes

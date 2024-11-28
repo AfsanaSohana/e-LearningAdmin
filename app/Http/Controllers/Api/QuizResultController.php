@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 use App\Models\QuizResult;
+use App\Models\ResultDetails;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Api\BaseController;
 
@@ -13,7 +14,24 @@ class QuizResultController extends BaseController
     }
 
     public function store(Request $request){
-        $data=QuizResult::create($request->all());
+
+        $result['student_id']=$request->student_id;
+        $result['course_id']=$request->course_id;
+        $result['total_questions']=count($request->userAnswers);
+        $result['correct_answers']=$request->countResult;
+        $data=QuizResult::create($result);
+        if(count($request->userAnswers) > 0){
+            foreach($request->userAnswers as $k=>$v){
+                foreach($v as $q=>$a){
+                    $rsd['student_id']=$request->student_id;
+                    $rsd['question_id']=$q;
+                    $rsd['answer']=$a;
+                    ResultDetails::create($rsd);
+                }
+            }
+        }
+        
+
         return $this->sendResponse($data,"QuizResult created successfully");
     }
     public function show(QuizResult $quizResult){

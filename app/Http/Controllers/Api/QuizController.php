@@ -7,8 +7,15 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Api\BaseController;
 class QuizController extends BaseController
 {
-     public function index(){
-        $data=Quiz::with('subject','batch')->get();
+     public function index(Request $request){
+        $data=Quiz::orderBy('id');
+        if($request->course_id){
+            $data=$data->where('course_id',$request->course_id);
+        }else{
+            $data=$data->with('course');
+        }
+        
+        $data=$data->get();
         return $this->sendResponse($data,"Quiz data");
     }
 

@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class ResultDetails extends Model
 {
     use HasFactory;
+    protected $fillable=['question_id', 'student_id', 'answer'];
 }
