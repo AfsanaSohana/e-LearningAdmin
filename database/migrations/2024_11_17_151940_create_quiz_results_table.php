@@ -17,7 +17,6 @@ return new class extends Migration
             $table->integer('quiz_id');
             $table->string('total_questions');
             $table->string('correct_answers');
-            $table->string('score');
             $table->timestamps();
         });
     }

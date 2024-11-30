@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('course_id');
             $table->text('question');
+            $table->integer('question_type');
             $table->string('options_1');
             $table->string('options_2');
             $table->string('options_3')->nullable();
