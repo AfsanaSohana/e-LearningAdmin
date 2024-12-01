@@ -15,10 +15,8 @@ return new class extends Migration
             $table->id();
             $table->integer('course_id');
             $table->integer('batch_id');
-            $table->string('module_1');
-            $table->string('module_2');
-            $table->string('module_3');
-            $table->string('module_4');
+            $table->string('module_name');
+            $table->string('video_id');
             $table->timestamps();
         });
     }
