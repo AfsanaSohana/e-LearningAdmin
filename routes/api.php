@@ -23,6 +23,7 @@ use App\Http\Controllers\Api\ClassIfoController;
 use App\Http\Controllers\Api\ModuleController;
 use App\Http\Controllers\Api\QuizController;
 use App\Http\Controllers\Api\QuizResultController;
+use App\Http\Controllers\Api\CertificateApplyRequestController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -138,6 +139,15 @@ Route::controller(BatchEnrollRequestController::class)->group(function(){
     Route::delete('batch_en_req/{batchEnrollRequest}','destroy');
     Route::post('batch_en_req/create','store');
     Route::get('batch_en_req/approve/{batchEnrollRequest}','approve');
+
+});
+Route::controller(CertificateApplyRequestController::class)->group(function(){
+    Route::get('certificate_en_req','index');
+    Route::get('certificate_en_req/{certificateApplyRequest}','show');
+    Route::post('certificate_en_req/edit/{certificateApplyRequest}','update');
+    Route::delete('certificate_en_req/{certificateApplyRequest}','destroy');
+    Route::post('certificate_en_req/create','store');
+    Route::get('certificate_en_req/approve/{certificateApplyRequest}','approve');
 
 });
 Route::controller(CertificateController::class)->group(function(){
